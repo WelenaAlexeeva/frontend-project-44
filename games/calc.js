@@ -1,8 +1,6 @@
 import _ from 'lodash';
 import app from '../src/index.js';
 
-// const isCorrect = (number) => number % 2 === 0;
-
 const calcGame = () => {
   const a = _.random(1, 100);
   const b = _.random(1, 20);
