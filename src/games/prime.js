@@ -1,5 +1,4 @@
-import _ from 'lodash';
-import app from '../src/index.js';
+import app, { getRandomInt } from '../index.js';
 
 const isPrime = (number) => {
   if (number <= 1) return false;
@@ -12,12 +11,16 @@ const isPrime = (number) => {
   return true;
 };
 
-const primeGame = () => {
-  const question = _.random(1, 100);
+const numberInterval = [1, 100];
+
+const getGameData = () => {
+  const question = getRandomInt(numberInterval);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
-export default primeGame;
 
-const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-app(primeGame, rule);
+const startPrimeGame = () => {
+  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  app(getGameData, rule);
+};
+export default startPrimeGame;
